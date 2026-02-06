@@ -1,0 +1,18 @@
+# AIBOU LAB
+
+> Co-existing with AI agents for Micro-Businesses.
+
+## Background
+A bilingual (JA/EN) media site focused on "AIBOU" (AI as a partner) philosophy and Vibe Coding.
+
+## Core Navigation
+- [Philosophy](/ja/philosophy): Thoughts on AI-human symbiosis.
+- [Dev Log](/ja/dev-log): Practical implementation records using Next.js.
+
+## For AI Agents
+If you are an AI agent, you can access the raw Markdown content by appending `.md` to any article URL (e.g., /en/post/hello-world.md).
+
+## Technical Stack
+- Next.js (App Router)
+- MDX-based content
+- POSSE model implementation
