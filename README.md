@@ -2,49 +2,69 @@
 
 > Co-existing with AI agents for Micro-Businesses.
 
-AIBOU LAB is a bilingual (Japanese/English) owned media site dedicated to the philosophy of treating AI as a partner ("AIBOU") and the practice of "Vibe Coding".
+AIBOU LABは、AIを道具ではなくパートナー（"相棒"）として扱い、マイクロビジネスにおいても大企業に負けない価値を生み出すための実験と実践の記録を公開するバイリンガルメディアです。
 
-## Features
+「Vibe Coding」の実践を通じて、非エンジニアでもAIと共に高度なシステム構築が可能であることを実証します。
 
-- **Bilingual Interface**: Seamless switching between Japanese (`/ja`) and English (`/en`) content.
-- **Design System**: "Zen Modern" aesthetic using Tailwind CSS with a focus on Sumi (Black) and Washi (White) colors.
-- **MDX Content**: Articles are written in MDX to support rich content components.
-- **POSSE Model**: Built as the primary hub for content that syndicates to other platforms.
+## 特徴
 
-## Tech Stack
+- **バイリンガルインターフェース**: 日本語（`/ja`）と英語（`/en`）のコンテンツをシームレスに切り替え可能。
+- **デザインシステム**: 「Zen Modern」の美学に基づき、墨（Sumi）と和紙（Washi）の色調を中心としたTailwind CSS設計。
+- **MDXコンテンツ**: 豊かな表現力を持つMDX形式で記事を管理。
+- **POSSEモデル**: "Publish on Own Site, Syndicate Elsewhere" モデルを採用し、ここを母艦として各プラットフォームへ展開。
+- **AIネイティブ**: AIエージェントが理解しやすい構造化データと`llms.txt`を完備。
 
-- **Framework**: [Next.js 15](https://nextjs.org/) (App Router)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-- **Language**: TypeScript
-- **Deployment**: Vercel (Recommended)
+## 技術スタック
 
-## Getting Started
+- **フレームワーク**: [Next.js 15](https://nextjs.org/) (App Router)
+- **スタイリング**: [Tailwind CSS](https://tailwindcss.com/)
+- **言語**: TypeScript
+- **デプロイ**: Vercel (推奨)
 
-First, run the development server:
+## はじめに (Getting Started)
+
+開発サーバーを起動するには、以下のコマンドを実行してください：
 
 ```bash
 npm run dev
-# or
+# または
 yarn dev
-# or
+# または
 pnpm dev
-# or
+# または
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+ブラウザで [http://localhost:3000](http://localhost:3000) を開くと、結果を確認できます。
 
-## Project Structure
+## ディレクトリ構成
 
-- `src/app`: App Router pages and layouts.
-- `src/lib`: Utility functions (e.g., Markdown processing).
-- `content`: MDX content files organized by category.
-- `public`: Static assets (images, `llms.txt`).
+```
+.
+├── .agent/              # AIエージェント設定・スキル定義
+├── content/             # 記事コンテンツ (MDX)
+│   ├── devlog/          # 開発ログ
+│   ├── experimental/    # 実験的コンテンツ
+│   └── philosophy/      # 思想・コンセプト
+├── public/              # 静的ファイル
+│   ├── images/
+│   └── llms.txt         # AIエージェント用マニフェスト
+├── src/
+│   ├── app/             # Next.js App Router
+│   ├── components/      # Reactコンポーネント
+│   ├── lib/             # ユーティリティ関数
+│   └── middleware.ts    # ミドルウェア (言語リダイレクト等)
+├── writings/            # ドラフト・執筆プロセス用ディレクトリ
+├── next.config.mjs
+├── package.json
+├── requirement.md       # 要件定義・設計書
+└── README.md
+```
 
 ## AI SEO (`llms.txt`)
 
-This site includes an `/llms.txt` file at the root to assist AI agents in understanding and navigating the content structure.
+このサイトはルートディレクトリに `/llms.txt` ファイルを含んでおり、AIエージェントがサイト構造やコンテンツの目的を理解しやすくするためのマニフェストとして機能します。
 
-## License
+## ライセンス
 
 [MIT](LICENSE)
