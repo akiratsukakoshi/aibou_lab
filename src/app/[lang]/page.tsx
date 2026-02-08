@@ -27,8 +27,8 @@ export default async function Home(props: { params: Promise<{ lang: string }> })
                 <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
                     AIBOU LAB
                 </p>
-                <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white lg:static lg:h-auto lg:w-auto lg:bg-none">
-                    <div className="flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0 font-sans">
+                <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white lg:static lg:h-auto lg:w-auto lg:bg-none z-50 pointer-events-none">
+                    <div className="flex place-items-center gap-2 p-8 pointer-events-auto lg:p-0 font-sans">
                         <Link
                             href="/ja"
                             className={`transition-colors ${params.lang === "ja" ? "font-bold text-sumi" : "text-gray-400 hover:text-sumi"}`}
