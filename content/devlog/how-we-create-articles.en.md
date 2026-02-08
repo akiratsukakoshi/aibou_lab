@@ -1,6 +1,6 @@
 ---
 title: "Article Creation at AIBOU LAB: Co-Creating with AI (Antigravity)"
-date: "2026-02-08"
+date: "2026-02-07"
 ---
 
 I’d like to share a bit about how we create articles here at AIBOU LAB.
@@ -52,7 +52,7 @@ A new writing experience co-created with AI. Through AIBOU LAB, I want to contin
 
 Below is the actual Skill file (prompt) executed on Antigravity to create this article.
 
-```markdown
+````markdown
 ---
 name: article_creation
 description: Standardized workflow for creating bilingual (JP/EN) blog posts for AIBOU LAB.
@@ -143,7 +143,7 @@ This skill guides the process of creating bilingual blog posts for AIBOU LAB, fr
 *   **Always** credit the AI and Human contributions explicitly.
 *   **Always** use the specific Target Audience definitions.
 *   **Always** check `my_style_source.md` before writing Japanese text.
-```
+````
 
 ---
 

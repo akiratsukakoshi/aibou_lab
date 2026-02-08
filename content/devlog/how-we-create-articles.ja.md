@@ -1,6 +1,6 @@
 ---
 title: "AIBOU LABの記事制作フロー：AI（Antigravity）と共に創るということ"
-date: "2026-02-08"
+date: "2026-02-07"
 ---
 
 AIBOU LABでの記事制作フローについて書きます。
@@ -52,7 +52,7 @@ AIと共に創る新しい執筆体験。このAIBOU LABを通じて、その可
 
 以下は、実際にこの記事を作成するためにAntigravity上で実行されたSkillファイル（プロンプト）です。
 
-```markdown
+````markdown
 ---
 name: article_creation
 description: Standardized workflow for creating bilingual (JP/EN) blog posts for AIBOU LAB.
@@ -143,7 +143,7 @@ This skill guides the process of creating bilingual blog posts for AIBOU LAB, fr
 *   **Always** credit the AI and Human contributions explicitly.
 *   **Always** use the specific Target Audience definitions.
 *   **Always** check `my_style_source.md` before writing Japanese text.
-```
+````
 
 ---
 
