@@ -39,6 +39,7 @@ This skill guides the process of creating bilingual blog posts for AIBOU LAB, fr
     *   **Tone**: Logical yet emotionally vulnerable. Blend professional insight with personal struggle.
     *   **Reference**: Use `writings/my_style_source.md` as the ground truth for style.
 2.  **Draft Content**: Write the full article in Japanese based on the approved structure.
+    *   **Save Location**: Save the draft to `/home/tukapontas/aibou_lab/writings/drafts/[slug].ja.md`.
 3.  **User Review**: Submit the draft for user approval.
 
 ### Phase 3: English Production & Credits
@@ -57,6 +58,7 @@ This skill guides the process of creating bilingual blog posts for AIBOU LAB, fr
 2.  **Translate to English**:
     *   **Persona**: Native IT Editor.
     *   **Style**: Natural, professional, accessible. Avoid literal translation; prioritize flow and clarity for an international audience.
+    *   **Save Location**: Save the English draft to `/home/tukapontas/aibou_lab/writings/drafts/[slug].en.md`.
 3.  **User Review**: Submit the English draft for user approval.
 
 ### Phase 4: Publication
@@ -69,8 +71,9 @@ This skill guides the process of creating bilingual blog posts for AIBOU LAB, fr
     ---
     ```
 2.  **File Placement**:
-    *   **JP**: `/home/tukapontas/aibou_lab/content/[category]/[slug].ja.md`
-    *   **EN**: `/home/tukapontas/aibou_lab/content/[category]/[slug].en.md`
+    *   **Move Drafts**: Move the approved drafts from `writings/drafts/` to the content directory.
+        *   `mv writings/drafts/[slug].ja.md content/[category]/[slug].ja.md`
+        *   `mv writings/drafts/[slug].en.md content/[category]/[slug].en.md`
     *   **IMPORTANT**: The `[slug]` MUST be identical for both files to enable the EN/JP switcher to work correctly.
 3.  **Archive Sources**:
     *   Move original drafts and input files to `/home/tukapontas/aibou_lab/writings/uploaded/`.

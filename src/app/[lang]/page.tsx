@@ -28,7 +28,7 @@ export default async function Home(props: { params: Promise<{ lang: string }> })
                     AIBOU LAB
                 </p>
                 <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white lg:static lg:h-auto lg:w-auto lg:bg-none">
-                    <div className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0 font-sans">
+                    <div className="flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0 font-sans">
                         <Link
                             href="/ja"
                             className={`transition-colors ${params.lang === "ja" ? "font-bold text-sumi" : "text-gray-400 hover:text-sumi"}`}
@@ -58,7 +58,7 @@ export default async function Home(props: { params: Promise<{ lang: string }> })
                 </div>
 
                 <div className="z-10 text-center px-4">
-                    <h1 className="text-4xl md:text-6xl font-serif font-bold mb-2 tracking-widest leading-normal">
+                    <h1 className="text-2xl md:text-6xl font-serif font-bold mb-2 tracking-widest leading-normal">
                         {t.headline}<br />{t.subHeadline}
                     </h1>
                     <p className="text-base md:text-xl font-sans uppercase tracking-[0.2em] text-gray-400 mb-8 mt-4">
