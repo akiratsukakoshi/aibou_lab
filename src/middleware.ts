@@ -19,7 +19,10 @@ export function middleware(request: NextRequest) {
         if (
             pathname.startsWith("/_next") ||
             pathname.startsWith("/images") ||
-            pathname.startsWith("/favicon.ico")
+            pathname.startsWith("/favicon.ico") ||
+            pathname.startsWith("/llms.txt") ||
+            pathname.startsWith("/robots.txt") ||
+            pathname.startsWith("/sitemap.xml")
         ) {
             return;
         }

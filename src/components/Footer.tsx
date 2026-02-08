@@ -9,9 +9,9 @@ export default function Footer() {
                     &copy; {new Date().getFullYear()} AIBOU LAB. All rights reserved.
                 </div>
                 <div className="mt-4 md:mt-0 flex space-x-6">
-                    <Link href="/llms.txt" className="hover:text-aibou-red transition-colors">
+                    <a href="/llms.txt" className="hover:text-aibou-red transition-colors">
                         For AI
-                    </Link>
+                    </a>
                 </div>
             </div>
         </footer>
