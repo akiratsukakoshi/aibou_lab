@@ -71,12 +71,16 @@ This skill guides the process of creating bilingual blog posts for AIBOU LAB, fr
 2.  **File Placement**:
     *   **JP**: `/home/tukapontas/aibou_lab/content/[category]/[slug].ja.md`
     *   **EN**: `/home/tukapontas/aibou_lab/content/[category]/[slug].en.md`
+    *   **IMPORTANT**: The `[slug]` MUST be identical for both files to enable the EN/JP switcher to work correctly.
 3.  **Archive Sources**:
     *   Move original drafts and input files to `/home/tukapontas/aibou_lab/writings/uploaded/`.
 4.  **Deploy**:
-    *   Run: `git add .`
-    *   Run: `git commit -m "Publish [Title] (JA/EN)"`
-    *   Run: `git push`
+    *   **Verify Remote**: Ensure `git remote -v` points to `https://github.com/akiratsukakoshi/aibou_lab.git`.
+    *   **Commit & Push**:
+        *   Run: `git add .`
+        *   Run: `git commit -m "Publish [Title] (JA/EN)"`
+        *   Run: `git push origin main`
+    *   **WARNING**: Do NOT use Vercel CLI commands (e.g., `vercel`, `vercel deploy`). ONLY use standard git commands.
 
 ## Rules & Constraints
 

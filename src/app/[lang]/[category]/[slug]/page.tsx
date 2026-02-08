@@ -16,9 +16,14 @@ export default async function PostPage(props: {
     return (
         <article className="flex min-h-screen flex-col items-center p-8 lg:p-24">
             <div className="z-10 max-w-3xl w-full items-start justify-between font-mono text-sm lg:flex mb-12">
-                <Link href={`/${params.lang}`} className="hover:underline">
-                    ← Back to Top
-                </Link>
+                <div className="flex space-x-6">
+                    <Link href={`/${params.lang}`} className="hover:underline">
+                        ← Back to Top
+                    </Link>
+                    <Link href={`/${params.lang === 'ja' ? 'en' : 'ja'}/${params.category}/${params.slug}`} className="hover:text-aibou-red transition-colors">
+                        {params.lang === 'ja' ? 'EN' : 'JP'}
+                    </Link>
+                </div>
                 <p className="uppercase tracking-widest text-aibou-red">{post.category}</p>
             </div>
 
