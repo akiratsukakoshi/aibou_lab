@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function Footer() {
     return (
-        <footer className="w-full py-8 mt-12 border-t border-gray-200">
+        <footer className="w-full pt-8 pb-48 lg:pb-8 mt-12 border-t border-gray-200">
             <div className="max-w-4xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500 font-mono">
                 <div>
                     &copy; {new Date().getFullYear()} AIBOU LAB. All rights reserved.
