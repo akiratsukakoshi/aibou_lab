@@ -29,8 +29,8 @@ This skill guides the process of creating bilingual blog posts for AIBOU LAB, fr
 2.  **Analyze Content**:
     *   **Core Message**: What is the single most important point?
     *   **Structure**: Propose a logical flow (Introduction -> Body -> Conclusion).
-    *   **Gap Analysis**: Identify missing information or ambiguities.
-3.  **User Review**: Present your analysis and proposed structure to the user for confirmation before drafting.
+    *   **Gap Analysis & Questioning**: Identify missing information or ambiguities. **Construct specific questions for the user** to extract deeper insights and context (Human-in-the-Loop).
+3.  **User Review & Co-Creation**: Present your analysis, **questions**, and proposed structure to the user. Discuss and refine based on their answers.
 
 ### Phase 2: Drafting (Japanese)
 
