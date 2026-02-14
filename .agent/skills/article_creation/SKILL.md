@@ -30,7 +30,7 @@ This skill guides the process of creating bilingual blog posts for AIBOU LAB, fr
     *   **Core Message**: What is the single most important point?
     *   **Structure**: Propose a logical flow (Introduction -> Body -> Conclusion).
     *   **Gap Analysis & Questioning**: Identify missing information or ambiguities. **Construct specific questions for the user** to extract deeper insights and context (Human-in-the-Loop).
-3.  **User Review & Co-Creation**: Present your analysis, **questions**, and proposed structure to the user. Discuss and refine based on their answers.
+3.  **User Review & Co-Creation**: Present your analysis, **questions**, and proposed structure to the user. Discuss and refine based on their answers. **IMPORTANT: This entire analysis and communication MUST be done in Japanese.**
 
 ### Phase 2: Drafting (Japanese)
 
@@ -47,13 +47,13 @@ This skill guides the process of creating bilingual blog posts for AIBOU LAB, fr
 1.  **Append Credits**: Add the following credit block to the end of the post **before** translation:
     ```markdown
     ---
-    *Created by Human(Name) & AI (Agent_Name)*
+    *Created by Human(Akira Tsukakoshi) & AI (Antigravity)*
 
     **Post Credits**
-    - **Original Idea:** Human (Name)
-    - **Structure:** AI (Agent_Name)
+    - **Original Idea:** Human (Akira Tsukakoshi)
+    - **Structure:** AI (Antigravity)
     - **Writing:** AI (XX%) / Human (XX%)
-    - **Translation:** AI (Agent_Name)
+    - **Translation:** AI (Antigravity)
     ```
 2.  **Translate to English**:
     *   **Persona**: Native IT Editor.
@@ -88,6 +88,7 @@ This skill guides the process of creating bilingual blog posts for AIBOU LAB, fr
 ## Rules & Constraints
 
 *   **Never** skip the analysis phase.
-*   **Always** credit the AI and Human contributions explicitly.
+*   **Always** credit the AI and Human contributions explicitly. Use "Akira Tsukakoshi" for the Human name.
 *   **Always** use the specific Target Audience definitions.
 *   **Always** check `my_style_source.md` before writing Japanese text.
+*   **Always** conduct the analysis and user communication in Japanese.
