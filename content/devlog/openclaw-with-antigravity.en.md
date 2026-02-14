@@ -3,8 +3,6 @@ title: "Taking on \"Openclaw\" as a Non-Engineer: With My Partner, Antigravity"
 date: "2026-02-15"
 ---
 
-# Taking on "Openclaw" as a Non-Engineer: With My Partner, Antigravity
-
 Have you heard of "openclaw"? ([openclaw](https://openclaw.ai/))
 It is currently one of the hottest topics in the world of autonomous AI agents. You might have also heard about it in connection with "[moltbook](https://www.moltbook.com/)," an SNS exclusively for agents (no humans allowed!!). It's a hot topic right now (humans can observe, so please take a peek).
 

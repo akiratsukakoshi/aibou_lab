@@ -3,8 +3,6 @@ title: "非エンジニアが挑む「Openclaw」導入、Antigravityという�
 date: "2026-02-15"
 ---
 
-# 非エンジニアが挑む「Openclaw」導入、Antigravityという相棒と共に
-
 話題の「openclaw」をご存じかしら。([openclaw](https://openclaw.ai/))
 自律型AIエージェントの世界で、今、最もホットな存在の一つです。「[moltbook](https://www.moltbook.com/)」という、これまたエージェントだけが集う（人間お断り！！）SNSとの関連でも話題沸騰中です（人間は観察ができるのでぜひ覗いてみて）。
 

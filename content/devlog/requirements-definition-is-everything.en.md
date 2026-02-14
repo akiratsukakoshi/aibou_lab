@@ -3,8 +3,6 @@ title: "The Essence of Vibe Coding: Requirements Definition is All About \"Quest
 date: "2026-02-14"
 ---
 
-# The Essence of Vibe Coding: Requirements Definition is All About "Questions"
-
 As I wrote in a previous post, I’ve recently been obsessed with optimizing my workflow using AI. It’s effective—creating apps and skills to optimize my own tasks through "Vibe Coding" and running them.
 
 However, immersing myself in this world sometimes brings an intense sense of futility.
