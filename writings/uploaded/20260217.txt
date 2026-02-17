@@ -1,0 +1,176 @@
+openclawのトークンAPI消費問題に向き合う。
+
+自立型エージェントopen claw。可能性しかないし、いろいろ触れているのが楽しくてガンガン触っているのだけれども、従量課金のAPI消費が甚だしい。
+
+メモリの機能をチューニングしたり、コンテキストトークンを減らすためにこまめにチャットをrefreshしたりしているのだけれども、ちょっとしたskillsの開発をopenclawと一緒にやるだけで、あっという間にコストがかさんでいく。
+
+使っているLLMはclaudeのスピードモデルhaiku4.5を使っている。
+
+余りに消費が激しいから、トークン消費のモニタリングスキルを導入してみた。
+
+---
+name: cost-monitor
+description: Track API token consumption and costs across all sessions. Provides daily summaries at 11 PM JST with hourly breakdowns and weekly summaries on Sundays. Monitors all Claude models and calculates estimated costs based on current pricing. Use for proactive cost management and budget awareness.
+---
+
+# Cost Monitor Skill
+
+Automatically track token consumption and estimated API costs across all sessions.
+
+## What It Does
+
+### Daily Monitoring
+1. **Real-time cost estimation**
+   - Query current session token usage
+   - Calculate estimated cost based on model pricing
+   - Display immediately on request
+
+2. **Daily Report (11:00 PM JST)**
+   - Hourly token usage breakdown (input/output)
+   - Daily total (input/output tokens + estimated cost)
+   - Send via WhatsApp
+
+3. **Weekly Report (Every Sunday 11:00 PM JST)**
+   - Day-by-day summary (input/output + cost)
+   - Weekly total (input/output tokens + estimated cost)
+   - Trends and insights
+   - Send via WhatsApp
+
+### Storage System (Hybrid)
+- **cost-log-summary.md** - Latest 90 days (light for MEMORY.md)
+- **costs/YYYY-MM-DD.md** - Daily detailed logs (current month)
+- **costs/archive/** - Historical data (older than 90 days)
+
+## How to Use
+
+### On-Demand Cost Check
+```
+"What's my cost today?" or "Show me token usage"
+```
+Returns immediate estimate with hourly breakdown.
+
+### Scheduled Reports
+- **Daily**: Automatically sent to WhatsApp at 23:00 JST
+- **Weekly**: Automatically sent to WhatsApp every Sunday at 23:00 JST
+
+## Token Pricing Configuration
+
+Currently configured for:
+- **Claude Haiku 4.5**
+  - Input: $0.80 per 1M tokens
+  - Output: $4.00 per 1M tokens
+
+Future support for:
+- Claude 3.7 Sonnet
+- Other Anthropic models
+
+See `references/pricing-config.md` for model pricing details.
+
+## Daily Report Example
+
+```
+📊 **Daily Cost Report - 2026-02-15**
+
+**Hourly Breakdown:**
+- 00:00-06:00: 12.5k input / 45.2k output
+- 06:00-12:00: 28.3k input / 156.7k output
+- 12:00-18:00: 8.9k input / 62.1k output
+- 18:00-23:00: 5.2k input / 34.5k output
+
+**Daily Total:**
+- Input: 54.9k tokens
+- Output: 298.5k tokens
+- Estimated cost: $1.29
+
+**Note:** Costs are estimates based on current pricing.
+```
+
+## Weekly Report Example
+
+```
+📊 **Weekly Cost Report - Week of 2026-02-09**
+
+**Daily Breakdown:**
+- 2026-02-09: 45.2k input / 231.5k output / $1.01
+- 2026-02-10: 52.1k input / 287.3k output / $1.25
+- 2026-02-11: 38.7k input / 198.2k output / $0.87
+- 2026-02-12: 61.3k input / 312.4k output / $1.36
+- 2026-02-13: 44.8k input / 276.1k output / $1.20
+- 2026-02-14: 54.9k input / 298.5k output / $1.29
+- 2026-02-15: 39.2k input / 201.7k output / $0.88
+
+**Weekly Total:**
+- Input: 336.2k tokens
+- Output: 1,805.7k tokens
+- Estimated cost: $8.86
+
+**Trend:** Stable usage, slight uptick on 2026-02-12
+```
+
+## Data Structure
+
+### cost-log-summary.md
+Quick reference with 90-day rolling window:
+- Most recent entries for trend spotting
+- Light enough for MEMORY.md loading
+
+### costs/2026-02-15.md
+Full daily details:
+- Hourly breakdown
+- Session-by-session if needed
+- Full precision
+
+### costs/archive/
+Old logs (>90 days):
+- Kept for historical analysis
+- Can be deleted after 6+ months if needed
+
+## Automation
+
+Configured as cron jobs:
+- Daily report: `0 23 * * *` (11:00 PM JST, Asia/Tokyo)
+- Weekly report: `0 23 * * 0` (Sunday 11:00 PM JST, Asia/Tokyo)
+
+## Notes
+
+- Costs are **estimates** based on publicly available pricing
+- Actual costs may vary due to volume discounts, cache benefits, etc.
+- Check Anthropic console for authoritative billing
+- Useful for relative cost awareness, not exact tracking
+
+
+控え目な利用でDailyで3-4ドルが消えていく…。
+従量課金で月間90ドルはR&Dとしては痛すぎる。
+
+いろいろ探した結果、たどり着いたのが中国製LLMのGLM。https://z.ai/model-api
+中国製と聞くと眉をひそめる人がいるかもしれないけど、背に腹は代えられない＆評判が非常によい。
+
+何よりもすばらしいのはGLM Coding Planというコーディング向けの特別パッケージが用意されており、liteプランだと月額10ドルのサブスク。現在、openclaw立ち上げから3日で9ドル近くのAPIコストがかかっている身からすると最高のプラン。
+
+「GLM4.7」「GLM5」性能比較　といったキーワードで検索すると色々と記事が出てくるので見てほしいですが、性能的にはclaude opus4.5やgemini3に匹敵する数値らしい。
+
+ということで早速導入してみました。
+
+1. アカウント取得（google アカウントと連携。超簡単）
+2. 月額プランをsubscribe。デフォルトでは3カ月継続プランが表示されているのでそれをmonthlyプランに変更して契約
+3. カード情報を入力（怖ければPaypal決済も可能）
+4. APIキーを取得
+
+超簡単。で、openclawへの適用方法なのだけど、こんなページが用意されており、openclawへの適用ガイドが公式情報としてあるのが素晴らしい↓
+https://docs.z.ai/devpack/tool/openclaw
+
+※openclawをAntigravityと接続してBANされたという情報が多数あるけど、之なら安心して接続できる。
+
+しかもページ中央のコピーボタンを押すと、このページをA2Aで伝える用の丁寧なテキスト情報がコピーされるので、それをAIに投げればあとはよしなにやってくれるというすごく親切な設計。
+
+基本は後はお任せなのだけど、私がはまったポイントは、従量課金のAPIと定額制のAPIはendpointのURLが異なり、これが間違っていると課金されていないから使えないよ、というアラームが返ってきちゃいます。
+
+サイトにこんな但し書きがありました↓
+Note: When using the GLM Coding Plan, you need to configure the dedicated
+Coding endpoint - https://api.z.ai/api/coding/paas/v4
+instead of the general endpoint - https://api.z.ai/api/paas/v4
+Note: The Coding API endpoint is only for Coding scenarios and is not applicable to general API scenarios. Please use them accordingly.
+
+
+今のところ非常に快適に動いています。日本語のやり取りも問題なし。なによりもトークンコストを気にせずに使えるのが最高に快適です。
+
